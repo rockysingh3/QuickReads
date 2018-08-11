@@ -10,7 +10,6 @@ app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
 
-const PORT = 3000;
 
 
 app.use('/', homeRoute.router);
