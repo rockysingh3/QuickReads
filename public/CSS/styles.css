@@ -14,3 +14,14 @@
   background: #eee;
   margin: 0;
 }
+
+.wrapper img {
+  width: 100px;
+  height: 120px;
+}
+
+
+
+.rateButton {
+  margin-bottom: 20px;
+}
