@@ -2,16 +2,17 @@
 
 <div class="container wrapper">
     <% apiResultsdata['items'].forEach(function(items) { %>
-      <div>
-        <% var r = items['volumeInfo']['imageLinks']['smallThumbnail'] %>
-        <img src="<%= r %>" alt="" >
-      </div>
-      <div>
-        <li><%= items['volumeInfo']['title'] %></li>
-        <li>By: <%= items['volumeInfo']['authors'] %></li>
-      </div>
-      <div>
-        <button type="button" name="button">Rate</button>
-      </div>
-    <% }) %>
+      <!-- gets the image from the JSON -->
+          <% var r = items['volumeInfo']['imageLinks']['smallThumbnail'] %>
+          <div>
+            <img src="<%= r %>" alt="" >
+          </div>
+          <div>
+            <li><%= items['volumeInfo']['title'] %></li>
+            <li>By: <%= items['volumeInfo']['authors'] %></li>
+          </div>
+          <div>
+            <button type="button" name="button">Rate</button>
+          </div>
+        <% }) %>
 </div>
