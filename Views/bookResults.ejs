@@ -1,11 +1,17 @@
 <% include ./partials/navbar %>
 
-<% apiResultsdata['items'].forEach(function(items) { %>
-  <div class="bookItems">
-    <li><%= items['volumeInfo']['title'] %></li>
-    <li><%= items['volumeInfo']['authors'] %></li>
-    <!-- gets the img -->
-    <% var r = items['volumeInfo']['imageLinks']['thumbnail'] %>
-    <img src="<%= r %>" alt="" >
-  </div>
-<% }) %>
+<div class="container wrapper">
+    <% apiResultsdata['items'].forEach(function(items) { %>
+      <div>
+        <% var r = items['volumeInfo']['imageLinks']['smallThumbnail'] %>
+        <img src="<%= r %>" alt="" >
+      </div>
+      <div>
+        <li><%= items['volumeInfo']['title'] %></li>
+        <li>By: <%= items['volumeInfo']['authors'] %></li>
+      </div>
+      <div>
+        <button type="button" name="button">Rate</button>
+      </div>
+    <% }) %>
+</div>
