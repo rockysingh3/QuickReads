@@ -6,14 +6,17 @@
         <!-- get the image -->
           <% var r = items['volumeInfo']['imageLinks']['smallThumbnail'] %>
           <div>
-            <img src="<%= r %>" alt="" >
+            <img src="<%= image %>" alt="" >
           </div>
           <div>
-            <li><%= items['volumeInfo']['title'] %></li>
-            <li>By: <%= items['volumeInfo']['authors'] %></li>
+          <a href="#" ><li><%= title %></li></a>
+            <li>By: <%= authors %></li>
           </div>
           <div>
-            <button type="button" name="button">Rate</button>
+            <button class="rateButton" type="button" name="button">Rate</button>
+          </br>
+            <button type="button" name="button">Review</button>
           </div>
+          <% } %>
         <% }) %>
 </div>
