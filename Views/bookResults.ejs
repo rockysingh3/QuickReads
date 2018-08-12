@@ -3,6 +3,7 @@
 <div class="container wrapper">
     <% apiResultsdata['items'].forEach(function(items) { %>
       <!-- gets the image from the JSON -->
+        <!-- get the image -->
           <% var r = items['volumeInfo']['imageLinks']['smallThumbnail'] %>
           <div>
             <img src="<%= r %>" alt="" >
