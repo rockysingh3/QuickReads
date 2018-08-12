@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
 
+
+// Routes
 const homeRoute = require('./routes/home');
+const bookResultsRoute = require('./routes/bookResults');
 
 
 
@@ -11,8 +14,9 @@ app.set("view engine", "ejs");
 
 
 
-
+// Using routes
 app.use('/', homeRoute.router);
+app.use('/', bookResultsRoute.router);
 
 
 app.listen(app.get('port'), () => {
