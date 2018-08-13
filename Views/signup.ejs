@@ -29,12 +29,12 @@
   </div>
 
   <!-- Login Form -->
-  <form>
-    <input type="text" name="signup" id="firstName"  class="fadeIn second" placeholder="First name">
-    <input type="text" name="signup" id="lastName" class="fadeIn third" placeholder="Last name">
-    <input type="text" name="signup" id="email" class="fadeIn fourth" name="login" placeholder="Email">
-    <input type="text" name="signup" id="password" class="fadeIn fifth" name="login" placeholder="Password">
-    <input type="text" name="signup" id="confirmPassword" class="fadeIn sixth" name="login" placeholder="Confirm password">
+  <form method="POST" action="/signup">
+    <input type="text" name="firstName" id="firstName"  class="fadeIn second" placeholder="First name">
+    <input type="text" name="lastName" id="lastName" class="fadeIn third" placeholder="Last name">
+    <input type="text" name="email" id="email" class="fadeIn fourth" name="login" placeholder="Email">
+    <input type="text" name="password" id="password" class="fadeIn fifth" name="login" placeholder="Password">
+    <input type="text" name="password2" id="confirmPassword" class="fadeIn sixth" name="login" placeholder="Confirm password">
 
     <input type="submit" class="fadeIn fourth" value="Sign Up">
   </form>
