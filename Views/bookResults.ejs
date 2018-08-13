@@ -1,31 +1,22 @@
 <% include ./partials/navbar %>
 
-<div class="container wrapper">
-    <% apiResultsdata['items'].forEach(function(items) { %>
+<div class="container">
       <!-- gets the image from the JSON -->
-      <% let ID = items['id'] %>
-      <% let volumeInfo = items['volumeInfo'] %>
-      <% let title = volumeInfo['title'] %>
-      <% let authors = volumeInfo['authors'] %>
-      <% let image = null; %>
-      <!-- if the imageLinks is not in the api, it won't throw an error -->
-      <% if(volumeInfo['imageLinks'] !== undefined) { %>
-          <% image = volumeInfo['imageLinks']['smallThumbnail'] %>
-        <% } %>
-        <!-- if the image is null don't display any info about it -->
-        <% if(image !== null) { %>
-          <div>
-            <img src="<%= image %>" alt="" >
-          </div>
-          <div>
-            <a href="#" <li><%= title %></li>
-            <li>By: <%= authors %></li>
-          </div>
-          <div>
-            <button class="rateButton" type="button" name="button">Rate</button>
-          </br>
-            <button type="button" name="button">Review</button>
-          </div>
-          <% } %>
-        <% }) %>
+        <!-- get the image -->
+        <div class="wrapper">
+          <% apiResultsdata['items'].forEach(function(items) { %>
+            <% var image = items['volumeInfo']['imageLinks']['smallThumbnail'] %>
+            <div>
+              <img src="<%= image %>" alt="" >
+            </div>
+            <div>
+              <a href="#" <li><%= items['volumeInfo']['title'] %></li>
+              <li>By: <%= items['volumeInfo']['authors'] %></li>
+            </div>
+            <div>
+              <button class="rateButton" type="button" name="button">Rate</button>
+              <button type="button" name="button">Review</button>
+            </div>
+          <% }) %>
+        </div>
 </div>

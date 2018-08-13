@@ -3,23 +3,14 @@
 }
 
 .wrapper {
-  margin-left: 30%;
   display: grid;
-  grid-template-columns: 13% 30% 10%;
-  margin-top: 5%;
+  grid-template-columns: 30% 30% 40%;
+  background: #eee;
+
 }
 
 .wrapper > div {
-  padding: 1em;
   background: #eee;
-  margin: 0;
 }
 
-.wrapper img {
-  width: 100px;
-  height: 120px;
-}
-
-.rateButton {
-  margin-bottom: 20px;
-}
+/* all for bookResults page */
