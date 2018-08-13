@@ -24,3 +24,8 @@
 #ID {
   display: none;
 }
+
+.navbar-brand {
+  color: white;
+  background-color: transparent;
+}
