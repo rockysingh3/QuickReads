@@ -1,16 +1,17 @@
-.wrapper li {
-  list-style: none;
+/* card class in bookResults.ejs */
+.card {
+  width: 50%;
+  margin-left: 22%;
+  margin-top: 10px;
 }
 
-.wrapper {
-  display: grid;
-  grid-template-columns: 30% 30% 40%;
-  background: #eee;
-
+/* navbar  */
+.navbar {
+  background-color: #39ace7;
+  color: red;
 }
 
-.wrapper > div {
-  background: #eee;
-}
 
-/* all for bookResults page */
+.navbar-collapse.collapse ul li a {
+  color: white;
+}

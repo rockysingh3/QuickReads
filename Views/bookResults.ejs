@@ -1,22 +1,37 @@
 <% include ./partials/navbar %>
 
 <div class="container">
-      <!-- gets the image from the JSON -->
-        <!-- get the image -->
-        <div class="wrapper">
-          <% apiResultsdata['items'].forEach(function(items) { %>
-            <% var image = items['volumeInfo']['imageLinks']['smallThumbnail'] %>
-            <div>
-              <img src="<%= image %>" alt="" >
+
+  <!-- loop through the json object  -->
+  <% apiResultsdata['items'].forEach(function(items) { %>
+    <% let ID = items['id'] %>
+    <% let image = items['volumeInfo']['imageLinks']['smallThumbnail'] %>
+    <% let author = items['volumeInfo']['authors'] %>
+    <% let title = items['volumeInfo']['title'] %>
+
+    <!-- bootstrap card  -->
+    <div class="card">
+            <div class="row no-gutters">
+                <div class="col-auto">
+                    <img src="<%= image %>" class="img-fluid" alt="">
+                </div>
+                <div class="col">
+                    <div class="card-block px-2">
+                      <a  href="#"><h5 class="card-title"><%= title %></h5></a>
+
+                        <p class="card-text">By: <%= author %></p>
+                        <a href="#" class="btn btn-primary">Review</a>
+                        <a href="#" class="btn btn-primary">Rate</a>
+                        <a href="#" class="btn btn-primary">Add to bookself</a>
+                    </div>
+                </div>
             </div>
-            <div>
-              <a href="#" <li><%= items['volumeInfo']['title'] %></li>
-              <li>By: <%= items['volumeInfo']['authors'] %></li>
+            <div class="card-footer w-100 text-muted">
             </div>
-            <div>
-              <button class="rateButton" type="button" name="button">Rate</button>
-              <button type="button" name="button">Review</button>
-            </div>
-          <% }) %>
         </div>
+
+    <% }) %>
+
 </div>
+
+<% include ./partials/footer %>
