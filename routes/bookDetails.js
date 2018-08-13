@@ -1,25 +1,28 @@
 'use strict';
-const router = require('express').Router();
+const express = require('express');
+const app = express();
+const router = express.Router();
 const request = require('request');
+const bodyParser = require('body-parser');
 
 
 /// you need get the ID here
 // so you can make another api call
 // with the id in the url
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 
 
 
 
 router.get('/bookDetails', (req, res) => {
-  let bookQuery = req.query.searchForBook;
-  request('https://www.googleapis.com/books/v1/volumes?q=' + bookQuery, (err, response, body) => {
-    if(!err && response.statusCode == 200){
-      let apiResultsdata = JSON.parse(body);
-      res.render('bookDetails', {apiResultsdata: apiResultsdata});
-    }
-  });
+    res.render('bookDetails');
+});
+
+router.post('/bookDetails', (req, res) => {
+  let ID = req.body;
+  console.log('ID: ' + ID);
 });
 
 

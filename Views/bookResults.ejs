@@ -15,7 +15,7 @@
 
 
     <% if(image !== null) { %>
-      <form id="ID">
+      <form id="IDs">
         <option value="<%= ID %>"></option>
       </form>
     <!-- bootstrap card  -->
@@ -26,7 +26,31 @@
                 </div>
                 <div class="col">
                     <div class="card-block px-2">
-                      <a  href="#"><h5 class="card-title"><%= title %></h5></a>
+
+                      <a class="clicklink" href="/bookDetails"><h5 class="card-title"><%= title %></h5></a>
+
+                      <script type="text/javascript">
+                          $(document).ready(function(){
+                            var elem;
+                              $(".card-title").click(function() {
+                                elem = true;
+                                // $.ajax({
+                                //   type: 'post',
+                                //   contentType: "application/json; harset=UTF-8",
+                                //   data: JSON.stringify({ID:'<%= ID %>'}),
+                                //   url: 'localhost:3000/bookDetails',
+                                //   success: function(data){
+                                //     console.log('success');
+                                //   }
+                                // });
+                              });
+                              if(elem != true){
+                                alert("not clicked");
+                              }else{
+                                alert('Clicked');
+                              }
+                          });
+                      </script>
 
                         <p class="card-text">By: <%= author %></p>
                         <a href="#" class="btn btn-primary">Review</a>

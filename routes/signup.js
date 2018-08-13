@@ -20,6 +20,7 @@ router.post('/signup', (req, res) => {
   const password = req.body.password;
   const password2 = req.body.password2;
 
+  // error handle all the fields
   req.checkBody('firstName', 'First name is required').notEmpty();
   req.checkBody('lastName', 'Last name is required').notEmpty();
   req.checkBody('email', 'Email is required').notEmpty();
@@ -30,6 +31,7 @@ router.post('/signup', (req, res) => {
 
   let errors = req.validationErrors();
 
+  // handle the error 
   if(errors){
     res.render('signup', {errors: errors});
   }else {
