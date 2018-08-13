@@ -26,6 +26,19 @@ legend{
   text-decoration: none;
 }
 
+body {
+  background-color: bisque;
+}
+
+.nav {
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.container {
+  margin-top: 70px;
+}
+
 .signup-btn:hover {
   background: #79bc64;
   background-image: -webkit-linear-gradient(top, #79bc64, #5e7056);
