@@ -1,6 +1,12 @@
 body {
   padding-top: 15px;
   font-size: 12px
+  background-color: bisque;
+}
+
+.nav {
+  margin-left: 50px;
+  margin-top: 20px;
 }
 .main {
   max-width: 320px;
