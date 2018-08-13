@@ -1,22 +1,30 @@
 <% include ./partials/navbar %>
 
-<div class="container wrapper">
-    <% apiResultsdata['items'].forEach(function(items) { %>
-      <!-- gets the image from the JSON -->
-        <!-- get the image -->
-          <% var r = items['volumeInfo']['imageLinks']['smallThumbnail'] %>
-          <div>
-            <img src="<%= image %>" alt="" >
-          </div>
-          <div>
-          <a href="#" ><li><%= title %></li></a>
-            <li>By: <%= authors %></li>
-          </div>
-          <div>
-            <button class="rateButton" type="button" name="button">Rate</button>
-          </br>
-            <button type="button" name="button">Review</button>
-          </div>
-          <% } %>
-        <% }) %>
+<div class="container">
+  <% apiResultsdata['items'].forEach(function(items) { %>
+    <% let image = items['volumeInfo']['imageLinks']['smallThumbnail'] %>
+    <% let author = items['volumeInfo']['authors'] %>
+    <% let title = items['volumeInfo']['title'] %>
+
+    <div class="card">
+            <div class="row no-gutters">
+                <div class="col-auto">
+                    <img src="<%= image %>" class="img-fluid" alt="">
+                </div>
+                <div class="col">
+                    <div class="card-block px-2">
+                        <l1 class="card-title"><%= title %></l1>
+                        <p class="card-text">By: <%= author %></p>
+                        <a href="#" class="btn btn-primary">Review</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer w-100 text-muted">
+            </div>
+        </div>
+
+    <% }) %>
+
 </div>
+
+<% include ./partials/footer %>
