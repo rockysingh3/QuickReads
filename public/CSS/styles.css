@@ -4,3 +4,28 @@
   margin-left: 22%;
   margin-top: 10px;
 }
+
+/* navbar  */
+.navbar {
+  background-color: #39ace7;
+  color: red;
+}
+
+
+.navbar-collapse.collapse ul li a {
+  color: white;
+}
+
+.img-fluid {
+  width: 100px;
+  height: 160px;
+}
+
+#ID {
+  display: none;
+}
+
+.navbar-brand {
+  color: white;
+  background-color: transparent;
+}

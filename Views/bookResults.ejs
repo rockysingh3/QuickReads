@@ -5,10 +5,19 @@
   <!-- loop through the json object  -->
   <% apiResultsdata['items'].forEach(function(items) { %>
     <% let ID = items['id'] %>
-    <% let image = items['volumeInfo']['imageLinks']['smallThumbnail'] %>
-    <% let author = items['volumeInfo']['authors'] %>
-    <% let title = items['volumeInfo']['title'] %>
+    <% let volumeInfo = items['volumeInfo'] %>
+    <% let author = volumeInfo['authors'] %>
+    <% let title = volumeInfo['title'] %>
+    <% let image = null %>
+    <% if(!(volumeInfo['imageLinks'] === undefined)) { %>
+      <% image = volumeInfo['imageLinks']['smallThumbnail'] %>
+    <% } %>
 
+
+    <% if(image !== null) { %>
+      <form id="ID">
+        <option value="<%= ID %>"></option>
+      </form>
     <!-- bootstrap card  -->
     <div class="card">
             <div class="row no-gutters">
@@ -29,6 +38,8 @@
             <div class="card-footer w-100 text-muted">
             </div>
         </div>
+
+        <% } %>
 
     <% }) %>
 
