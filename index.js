@@ -5,6 +5,7 @@ const app = express();
 // Routes
 const homeRoute = require('./routes/home');
 const bookResultsRoute = require('./routes/bookResults');
+const loginRoute = require('./routes/login.js');
 
 
 
@@ -17,6 +18,7 @@ app.set("view engine", "ejs");
 // Using routes
 app.use('/', homeRoute.router);
 app.use('/', bookResultsRoute.router);
+app.use('/', loginRoute.router);
 
 
 app.listen(app.get('port'), () => {
