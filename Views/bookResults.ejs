@@ -31,24 +31,18 @@
 
                       <script type="text/javascript">
                           $(document).ready(function(){
-                            var elem;
                               $(".card-title").click(function() {
-                                elem = true;
-                                // $.ajax({
-                                //   type: 'post',
-                                //   contentType: "application/json; harset=UTF-8",
-                                //   data: JSON.stringify({ID:'<%= ID %>'}),
-                                //   url: 'localhost:3000/bookDetails',
-                                //   success: function(data){
-                                //     console.log('success');
-                                //   }
-                                // });
+                                // doesn't work
+                                $.ajax({
+                                  type: 'post',
+                                  contentType: "application/json; harset=UTF-8",
+                                  data: JSON.stringify({uniqeID: "<%= items['id'] %>"}),
+                                  url: '/bookDetails',
+                                  success: function(data){
+                                    console.log('success');
+                                  }
+                                });
                               });
-                              if(elem != true){
-                                alert("not clicked");
-                              }else{
-                                alert('Clicked');
-                              }
                           });
                       </script>
 

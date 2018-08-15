@@ -9,8 +9,9 @@ const bodyParser = require('body-parser');
 /// you need get the ID here
 // so you can make another api call
 // with the id in the url
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+
 
 
 
@@ -21,8 +22,7 @@ router.get('/bookDetails', (req, res) => {
 });
 
 router.post('/bookDetails', (req, res) => {
-  let ID = req.body;
-  console.log('ID: ' + ID);
+  console.log(req.body.uniqeID);
 });
 
 
