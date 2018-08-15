@@ -21,6 +21,7 @@ router.get('/bookDetails', (req, res) => {
 
 router.post('/bookDetails', (req, res) => {
   console.log(req.body.ID);
+  res.render('bookDetails');
 });
 
 
