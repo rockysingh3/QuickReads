@@ -31,24 +31,18 @@
 
                       <script type="text/javascript">
                           $(document).ready(function(){
-                            var elem;
                               $(".card-title").click(function() {
-                                elem = true;
-                                // $.ajax({
-                                //   type: 'post',
-                                //   contentType: "application/json; harset=UTF-8",
-                                //   data: JSON.stringify({ID:'<%= ID %>'}),
-                                //   url: 'localhost:3000/bookDetails',
-                                //   success: function(data){
-                                //     console.log('success');
-                                //   }
-                                // });
+
+                                $.ajax({
+                                  type: 'post',
+                                  contentType: "application/json; charset=UTF-8",
+                                  data: JSON.stringify({ID:'<%= ID %>'}),
+                                  url: 'http://localhost:3000/bookDetails',
+                                  success: function(data){
+                                    console.log('success');
+                                  }
+                                });
                               });
-                              if(elem != true){
-                                alert("not clicked");
-                              }else{
-                                alert('Clicked');
-                              }
                           });
                       </script>
 
