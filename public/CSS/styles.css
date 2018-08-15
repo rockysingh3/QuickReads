@@ -1,7 +1,6 @@
 /* card class in bookResults.ejs */
 .card {
-  width: 50%;
-  margin-left: 22%;
+  width: 100%;
   margin-top: 10px;
 }
 
@@ -10,6 +9,20 @@
   background-color: #39ace7;
   color: red;
 }
+
+.btn_class {
+  margin-top: 20px;
+}
+
+.line {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
 
 
 .navbar-collapse.collapse ul li a {
