@@ -32,12 +32,11 @@
                       <script type="text/javascript">
                           $(document).ready(function(){
                               $(".card-title").click(function() {
-                                // doesn't work
                                 $.ajax({
                                   type: 'post',
-                                  contentType: "application/json; harset=UTF-8",
-                                  data: JSON.stringify({uniqeID: "<%= items['id'] %>"}),
-                                  url: '/bookDetails',
+                                  contentType: "application/json; charset=UTF-8",
+                                  data: JSON.stringify({ID:'<%= ID %>'}),
+                                  url: 'http://localhost:3000/bookDetails',
                                   success: function(data){
                                     console.log('success');
                                   }

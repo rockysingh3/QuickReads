@@ -15,14 +15,12 @@ app.use(bodyParser.json());
 
 
 
-
-
 router.get('/bookDetails', (req, res) => {
     res.render('bookDetails');
 });
 
 router.post('/bookDetails', (req, res) => {
-  console.log(req.body.uniqeID);
+  console.log(req.body.ID);
 });
 
 
