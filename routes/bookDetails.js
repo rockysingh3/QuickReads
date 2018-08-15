@@ -14,15 +14,12 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 
-
-
 router.get('/bookDetails', (req, res) => {
     res.render('bookDetails');
 });
 
 router.post('/bookDetails', (req, res) => {
-  let ID = req.body;
-  console.log('ID: ' + ID);
+  console.log(req.body.ID);
 });
 
 
