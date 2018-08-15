@@ -1,11 +1,18 @@
 <% include ./partials/navbar %>
 
-<div class="container">
+
+
+
+<div class="container bookResults">
+
+  <span class="line"></span>
 
   <!-- loop through the json object  -->
   <% apiResultsdata['items'].forEach(function(items) { %>
     <% let ID = items['id'] %>
     <% let volumeInfo = items['volumeInfo'] %>
+    <% let publisher = volumeInfo['publisher'] %>
+    <% let pageCount = volumeInfo['pageCount'] %>
     <% let author = volumeInfo['authors'] %>
     <% let title = volumeInfo['title'] %>
     <% let image = null %>
@@ -27,11 +34,12 @@
                 <div class="col">
                     <div class="card-block px-2">
 
-                      <a class="clicklink" href="/bookDetails"><h5 class="card-title"><%= title %></h5></a>
+                      <a class="title" href="/bookDetails" ><%= title %></a>
 
                       <script type="text/javascript">
                           $(document).ready(function(){
-                              $(".card-title").click(function() {
+
+                              $(".title").click(function() {
                                 $.ajax({
                                   type: 'post',
                                   contentType: "application/json; charset=UTF-8",
@@ -44,11 +52,14 @@
                               });
                           });
                       </script>
-
-                        <p class="card-text">By: <%= author %></p>
-                        <a href="#" class="btn btn-primary">Review</a>
-                        <a href="#" class="btn btn-primary">Rate</a>
-                        <a href="#" class="btn btn-primary">Add to bookself</a>
+                      <p class="card-text">by: <%= author %></br>
+                      publisher: <%= publisher %></br>
+                      page count: <%= pageCount %></p>
+                      <div class="btn_class">
+                        <a href="#" class="btn btn-info btn-sm">Review</a>
+                        <a href="#" class="btn btn-info btn-sm">Rate</a>
+                        <a href="#" class="btn btn-info btn-sm">Add to bookself</a>
+                      </div>
                     </div>
                 </div>
             </div>
