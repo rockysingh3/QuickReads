@@ -12,8 +12,15 @@ router.get('/bookDetails', (req, res) => {
 });
 
 router.post('/bookDetails', (req, res) => {
-  console.log(req.body.ID);
-  res.render('bookDetails');
+    let ID = req.body.ID;
+  request('https://www.googleapis.com/books/v1/volumes/' + ID, (err, response, body) => {
+    if(!err && response.statusCode == 200){
+      let bookdata = JSON.parse(body);
+      res.render('bookDetails', {bookdata: bookdata});
+    }else{
+      console.log(err);
+    }
+  });
 });
 
 
