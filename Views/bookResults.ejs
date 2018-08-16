@@ -22,9 +22,6 @@
 
 
     <% if(image !== null) { %>
-      <form id="IDs">
-        <option value="<%= ID %>"></option>
-      </form>
     <!-- bootstrap card  -->
     <div class="card">
             <div class="row no-gutters">
@@ -34,25 +31,10 @@
                 <div class="col">
                     <div class="card-block px-2">
 
-                      <a class="title" href="/bookDetails" ><%= title %></a>
+                      <!-- the id elem is the unquie id of each book -->
+                      <a id="<%= ID %>"class="title" href="/bookDetails" ><%= title %></a>
 
-                      <!-- sending the ID of the book clicked back to the server -->
-                      <script type="text/javascript">
-                          $(document).ready(function(){
-
-                              $(".title").click(function() {
-                                $.ajax({
-                                  type: 'post',
-                                  contentType: "application/json; charset=UTF-8",
-                                  data: JSON.stringify({ID:'<%= ID %>'}),
-                                  url: 'http://localhost:3000/bookDetails',
-                                  success: function(data){
-                                    console.log('success');
-                                  }
-                                });
-                              });
-                          });
-                      </script>
+                      <!-- getting author, publisher, pageCount of books -->
                       <p class="card-text">by: <%= author %></br>
                       publisher: <%= publisher %></br>
                       page count: <%= pageCount %></p>
@@ -73,5 +55,25 @@
     <% }) %>
 
 </div>
+
+
+<!-- sends the unique id book the book back to the server -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".title").click(function() {
+          var id = $(this).attr("id");
+          $.ajax({
+            type: 'POST',
+            contentType: "application/json; charset=UTF-8",
+            data: JSON.stringify({ID:id}),
+            url: 'http://localhost:3000/bookDetails',
+            success: function(data){
+              console.log('success');
+            }
+
+          });
+        });
+    });
+</script>
 
 <% include ./partials/footer %>
