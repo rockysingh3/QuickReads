@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 
 
 router.get('/bookDetails', (req, res) => {
-    res.render('bookDetails');
+  res.render('bookDetails');
 });
 
 router.post('/bookDetails', (req, res) => {
