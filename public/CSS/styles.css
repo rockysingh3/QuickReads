@@ -1,9 +1,3 @@
-/* card class in bookResults.ejs */
-.card {
-  width: 50%;
-  margin-left: 22%;
-  margin-top: 10px;
-}
 
 /* navbar  */
 .navbar {
@@ -16,6 +10,35 @@
   color: white;
 }
 
+.navbar-brand {
+  color: white;
+  background-color: transparent;
+}
+
+
+
+/* bookResults page */
+.line {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.btn_class {
+  margin-top: 20px;
+}
+
+.card {
+  width: 100%;
+  margin-top: 10px;
+}
+
+
+
+
 .img-fluid {
   width: 100px;
   height: 160px;
@@ -23,9 +46,4 @@
 
 #IDs {
   display: none;
-}
-
-.navbar-brand {
-  color: white;
-  background-color: transparent;
 }
