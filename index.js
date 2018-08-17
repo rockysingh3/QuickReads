@@ -13,7 +13,6 @@ const homeRoute = require('./routes/home');
 const bookResultsRoute = require('./routes/bookResults');
 const loginRoute = require('./routes/login');
 const signupRoute = require('./routes/signup');
-const bookDetailsRoute = require('./routes/bookDetails');
 
 
 app.set('port',process.env.PORT || 3000);
@@ -27,7 +26,6 @@ app.use('/', homeRoute.router);
 app.use('/', bookResultsRoute.router);
 app.use('/', loginRoute.router);
 app.use('/', signupRoute.router);
-app.use('/', bookDetailsRoute.router);
 
 
 app.listen(app.get('port'), () => {
