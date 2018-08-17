@@ -16,6 +16,17 @@ router.get('/bookResults', (req, res) => {
 });
 
 
+router.get('/books/:id', (req, res) => {
+  let id =  req.params.id;
+  request('https://www.googleapis.com/books/v1/volumes/' + id, (err, response, body) => {
+    if(!err && response.statusCode == 200){
+      let bookdata = JSON.parse(body);
+      res.render('bookDetails', {bookdata: bookdata});
+    }
+  });
+});
+
+
 module.exports = {
   router: router
 }
