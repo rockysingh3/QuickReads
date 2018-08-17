@@ -32,7 +32,8 @@
                     <div class="card-block px-2">
 
                       <!-- the id elem is the unquie id of each book -->
-                      <a id="<%= ID %>"class="title" href="/bookDetails" ><%= title %></a>
+
+                      <a class="title" href="/books/<%=ID%>" ><%= title %></a>
 
                       <!-- getting author, publisher, pageCount of books -->
                       <p class="card-text">by: <%= author %></br>
@@ -58,7 +59,7 @@
 
 
 <!-- sends the unique id book the book back to the server -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(document).ready(function(){
         $(".title").click(function() {
           var id = $(this).attr("id");
@@ -74,6 +75,6 @@
           });
         });
     });
-</script>
+</script> -->
 
 <% include ./partials/footer %>
