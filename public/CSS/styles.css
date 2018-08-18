@@ -47,3 +47,12 @@
 #IDs {
   display: none;
 }
+
+
+.img {
+  float: left;
+}
+
+.detials li {
+  list-style: none;
+}
