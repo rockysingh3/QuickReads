@@ -1,10 +1,30 @@
 <% include ./partials/navbar %>
 
-<li><%= bookdata['volumeInfo']['title']  %></li>
-<li><%= bookdata['volumeInfo']['authors']  %></li>
-<li><%= bookdata['volumeInfo']['publisher']  %></li>
-<li><%= bookdata['volumeInfo']['description']  %></li>
-<li><%= bookdata['volumeInfo']['categories']  %></li>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="img">
+        <img src="<%= bookdata['volumeInfo']['imageLinks']['thumbnail']%> " class="img-fluid" alt="">
+    </div>
+    <div class="detials">
+      <li><h6>Title:</h6> <%= bookdata['volumeInfo']['title']  %></li>
+      <li><h6>Authors:</h6> <%= bookdata['volumeInfo']['authors']  %></li>
+      <li><h6>Publisher:</h6> <%= bookdata['volumeInfo']['publisher']  %></li>
+        <p class="description"><h6>Description:</h6> </p>
+      <li><h6>Categories:</h6> <%= bookdata['volumeInfo']['categories']  %></li>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- not working -->
+<script type="text/javascript">
+    $(document).ready(function(){
+      var html = document.getElementsByClassName("description");
+      html.innerHTML("helloo world!");
+    });
+</script>
 
 
 
