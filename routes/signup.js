@@ -1,5 +1,11 @@
 'use strict';
 const express = require('express');
+const path = require('path');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
+const flash = require('connect-flash');
+const session = require('express-session'); 
 const router = express.Router();
 
 
@@ -31,7 +37,7 @@ router.post('/signup', (req, res) => {
 
   let errors = req.validationErrors();
 
-  // handle the error 
+  // handle the error
   if(errors){
     res.render('signup', {errors: errors});
   }else {
@@ -43,6 +49,23 @@ router.post('/signup', (req, res) => {
     });
 
     //hash the password
+    bcrypt.getSalt(10, (err, salt) => {
+      bcrypt.hash(newUser.password, salt, (err, hash) => {
+        if(err){
+          console.log(err);
+        }
+        newUser.password = hash;
+        newUser.save((err) => {
+          if(err){
+            console.log(err);
+            return;
+          }else{
+            req.flash('success', 'You are now registered and can log in');
+            res.redirect('login');
+          }
+        });
+      });
+    });
   }
 
 
