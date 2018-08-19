@@ -56,3 +56,10 @@
 .detials li {
   list-style: none;
 }
+
+
+.summariestextarea {
+  margin-top: 20px;
+  width: 100%;
+  height: 600px;
+}
