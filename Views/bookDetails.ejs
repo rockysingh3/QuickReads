@@ -1,24 +1,39 @@
 <% include ./partials/navbar %>
 
 
-<div class="jumbotron jumbotron-fluid">
+  <!-- bootstrap card  -->
   <div class="container">
-    <div class="img">
-        <img src="<%= bookdata['volumeInfo']['imageLinks']['thumbnail']%> " class="img-fluid" alt="">
-    </div>
-    <div class="detials">
-      <li><h6>Title:</h6> <%= bookdata['volumeInfo']['title']  %></li>
-      <li><h6>Authors:</h6> <%= bookdata['volumeInfo']['authors']  %></li>
-      <li><h6>Publisher:</h6> <%= bookdata['volumeInfo']['publisher']  %></li>
-        <p class="description"><h6>Description:</h6><%= bookdata['volumeInfo']['description'] %> </p>
-      <li><h6>Categories:</h6> <%= bookdata['volumeInfo']['categories']  %></li>
-       <!-- Sagways to summaries page -->
-    </div>
-    <a  href="/summaries">Write a summary</a>
 
-  </div>
-</div>
+  <div class="card">
+          <div class="row no-gutters">
+              <div class="col-auto">
+                  <img src="<%= bookdata['volumeInfo']['imageLinks']['thumbnail']%>" class="img-fluid" alt="">
+              </div>
+              <div class="col">
+                  <div class="card-block px-2">
 
+                    <!-- the id elem is the unquie id of each book -->
+
+                    <a class="title" ><%= bookdata['volumeInfo']['title']  %></a>
+
+                    <!-- getting author, publisher, pageCount of books -->
+                    <p class="card-text">by: <%= bookdata['volumeInfo']['authors']  %></br>
+                    publisher: <%= bookdata['volumeInfo']['publisher']  %></br>
+                    <span class="line"></span>
+                    <%= bookdata['volumeInfo']['description'] %></p>
+                    <div class="btn_class">
+                      <a href="#" class="btn btn-info btn-sm">Review</a>
+                      <a href="#" class="btn btn-info btn-sm">Rate</a>
+                      <a href="#" class="btn btn-info btn-sm">Add to bookself</a>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <div class="card-footer w-100 text-muted">
+          </div>
+      </div>
+
+        </div>
 
 
 <% include ./partials/footer %>
