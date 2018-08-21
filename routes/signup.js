@@ -5,7 +5,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 const flash = require('connect-flash');
-const session = require('express-session'); 
+const session = require('express-session');
+const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 
@@ -49,7 +50,7 @@ router.post('/signup', (req, res) => {
     });
 
     //hash the password
-    bcrypt.getSalt(10, (err, salt) => {
+    bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(newUser.password, salt, (err, hash) => {
         if(err){
           console.log(err);
