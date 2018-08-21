@@ -1,12 +1,11 @@
 'use strict'
 
-If(process.env.NODE_ENV === 'production'){
+if(process.env.NODE_ENV === 'production'){
 
   module.exports = {
-    host: process.env.dbURI || "",
+    host: process.env.host || "",
     dbURI: process.env.dbURI
   }
-}else{
-  module.exports = require('./development.json');
-}
+}else {
+  module.exports = require('./develpment.json');
 }
