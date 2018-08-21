@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const flash = require('connect-flash');
+const expressValidator = require('express-validator');
+app.use(expressValidator())
 // configration file
 const config = require('./config');
 // connects to the DB
@@ -15,7 +18,7 @@ const mongoose = require('mongoose').connect(config.dbURI, (err) => {
 
 
 
-
+app.use(flash());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
