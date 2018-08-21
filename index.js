@@ -1,6 +1,17 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+// configration file
+const config = require('./config');
+// connects to the DB
+const mongoose = require('mongoose').connect(config.dbURI, (err) => {
+  if(err){
+    console.log("Mongoose error: " + err);
+  }else{
+    console.log("Mongoose is connected");
+  }
+});
+
 
 
 
@@ -16,7 +27,7 @@ const signupRoute = require('./routes/signup');
 const summariesRoute = require('./routes/summaries');
 
 
-app.set('port',process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3000);
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
 
@@ -31,5 +42,5 @@ app.use('/', summariesRoute.router);
 
 
 app.listen(app.get('port'), () => {
-  console.log("The app is running on port ", app.get('port'));
+  console.log("The app is running on port: " + app.get('port'));
 });
